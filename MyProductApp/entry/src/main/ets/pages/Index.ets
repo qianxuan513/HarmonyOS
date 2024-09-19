@@ -1,14 +1,6 @@
-import { httpRequest } from '../utils/httpTools'
 import { BannersRoot, Banners, ProductRoot, Product, ProductCategory } from '../model/dataModel'
 import { httpAPI } from '../service/httpAPI'
 import { productList } from '../component/productListComponent'
-
-interface IPag {
-  page?: number
-  per?: number
-  name?: string
-  category?: string
-}
 
 @Entry
 @Component
@@ -17,10 +9,11 @@ struct Index {
   scroller: Scroller = new Scroller()
   @State bannersDate: BannersRoot | undefined = undefined
   @State bannersImages: Banners[] = []
+  @State productPage: number = 1
   @State productDate: ProductRoot | undefined = undefined
   @State productList: Product[] = []
-  Content: IPag = {}
 
+  //轮播图
   getBanner() {
     httpAPI.getBanners('/api/v1/banners').then(response => {
       this.bannersDate = response.toJSON() as BannersRoot
@@ -28,11 +21,12 @@ struct Index {
     })
   }
 
+  //商品列表
   getProduct() {
-    httpAPI.getBanners('/api/v1/products').then(response => {
+    httpAPI.getProducts(`/api/v1/products/?page=${this.productPage}&&per=${10}`).then(response => {
       this.productDate = response.toJSON() as ProductRoot
       this.productList.push(...this.productDate.data)
-      // this.productList = this.productDate.data
+      this.productPage += 1
     })
   }
 
@@ -44,6 +38,7 @@ struct Index {
   build() {
     Scroll(this.scroller) {
       Column() {
+        //轮播图
         Swiper() {
           ForEach(this.bannersImages, (item: Banners) => {
             Image('http://192.168.14.56:1337' + item.coverImage)
@@ -70,6 +65,7 @@ struct Index {
     .width('100%')
     .height('100%')
     .onScrollEdge((side: Edge) => {
+      this.getProduct()
       console.info('To the edge')
     })
   }

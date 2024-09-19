@@ -10,4 +10,8 @@ export class httpAPI {
   static getProducts(url: string) {
     return httpRequest.httpGet(url).then()
   }
+
+  static getProductsDetail(url:string) {
+    return httpRequest.httpGet(url).then()
+  }
 }

@@ -1,3 +1,4 @@
+import { promptAction, router } from '@kit.ArkUI';
 import { Product, ProductCategory } from '../model/dataModel'
 
 @Component
@@ -11,6 +12,12 @@ export struct productList {
         .borderRadius(10)
         .margin({
           bottom: 10
+        })
+        .onClick(() => {
+          router.pushUrl({
+            url: 'pages/ProductDetailPage',
+            params: this.productArr
+          }, router.RouterMode.Standard)
         })
       Text(this.productArr.name)
         .maxLines(2)
