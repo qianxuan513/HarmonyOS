@@ -11,7 +11,11 @@ export class httpAPI {
     return httpRequest.httpGet(url).then()
   }
 
-  static getProductsDetail(url:string) {
+  static getProductsCategory(url: string) {
+    return httpRequest.httpGet(url).then()
+  }
+
+  static getProductsDetail(url: string) {
     return httpRequest.httpGet(url).then()
   }
 }

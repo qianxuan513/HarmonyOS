@@ -1,4 +1,4 @@
-import { promptAction, router } from '@kit.ArkUI';
+import { router } from '@kit.ArkUI';
 import { Product, ProductCategory } from '../model/dataModel'
 
 @Component
@@ -37,6 +37,8 @@ export struct productList {
         .height(20)
     }
     .width('40%')
+    .backgroundColor('#fff')
+    .borderRadius(10)
     .margin({
       bottom: 10
     })
