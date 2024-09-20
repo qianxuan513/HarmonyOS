@@ -1,4 +1,4 @@
-import { BannersRoot, Banners, ProductRoot, Product, ProductCategoryRoot, ProductCategory } from '../model/dataModel'
+import { Banners, ProductRoot, Product, ProductCategoryRoot, ProductCategory } from '../model/dataModel'
 import { httpAPI } from '../service/httpAPI'
 import { productList } from '../component/productListComponent'
 
@@ -8,12 +8,9 @@ export struct homePage {
   //tabs索引
   @State currentIndex: number = 0
   //轮播图数据定义
-  @State bannersDate: BannersRoot | undefined = undefined
   @State bannersImages: Banners[] = []
   //商品列表数据定义
   @State productPage: number = 1
-  @State productDate: ProductRoot | undefined = undefined
-  //商品详情数据定义
   @State productList: Product[] = []
   //商品类别数据定义
   @State productCategoryData: ProductCategoryRoot | undefined = undefined
@@ -22,25 +19,22 @@ export struct homePage {
   //轮播图
   getBanner() {
     httpAPI.getBanners('/api/v1/banners').then(response => {
-      this.bannersDate = response.toJSON() as BannersRoot
-      this.bannersImages = this.bannersDate.data
+      this.bannersImages = response
     })
   }
 
   //商品分类
   getCategory() {
     httpAPI.getProductsCategory('/api/v1/product_categories').then(response => {
-      this.productCategoryData = response.toJSON() as ProductCategoryRoot
+      this.productCategoryData = response as ProductCategoryRoot
       this.productCategoryMsg = this.productCategoryData.data
-      console.log(this.productCategoryMsg[0].name)
     })
   }
 
   //商品列表
   getProduct() {
     httpAPI.getProducts(`/api/v1/products/?page=${this.productPage}&&per=${10}`).then(response => {
-      this.productDate = response.toJSON() as ProductRoot
-      this.productList.push(...this.productDate.data)
+      this.productList.push(...response)
       this.productPage += 1
     })
   }
@@ -75,7 +69,7 @@ export struct homePage {
           //轮播图
           Swiper() {
             ForEach(this.bannersImages, (item: Banners) => {
-              Image('http://192.168.14.56:1337' + item.coverImage)
+              Image(item.coverImage)
                 .width('100%')
                 .height(200)
             }, (item: Banners) => item.id + '')
@@ -93,7 +87,6 @@ export struct homePage {
                 Column() {
                   Text(item.name)
                   Image(item.coverImage)
-                  // .width(50)
                 }
               }
             }, (item: ProductCategory) => item.id + '')

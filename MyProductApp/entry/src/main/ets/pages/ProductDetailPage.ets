@@ -16,7 +16,7 @@ struct ProductDetailPage {
   //获取商品详情
   getProductDetail() {
     httpAPI.getProductsDetail(`/api/v1/products/${this.productInfo.id}`).then(response => {
-      this.productDetailMsg = response.toJSON() as ProductDetailRoot
+      this.productDetailMsg = response as ProductDetailRoot
       this.productDetailData = this.productDetailMsg.data
       this.richTextOption = { content: this.productDetailData.content }
     })

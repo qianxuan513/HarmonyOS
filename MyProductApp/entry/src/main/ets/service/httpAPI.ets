@@ -1,14 +1,31 @@
 import { BusinessError } from '@kit.BasicServicesKit';
-import { httpRequest } from '../utils/httpTools'
+import { dealImage, httpRequest } from '../utils/httpTools'
+import { Banners, ProductRoot, Product, ProductCategoryRoot, ProductCategory } from '../model/dataModel'
 
 //rcp发起http网络请求
 export class httpAPI {
-  static getBanners(url: string) {
-    return httpRequest.httpGet(url).then()
+  static getBanners(url: string): Promise<Banners[]> {
+    return httpRequest.httpGet(url).then(res => {
+      return (res!['data'] as Banners[]).map(item => {
+        return {
+          createdAt: item.createdAt,
+          updatedAt: item.updatedAt,
+          id: item.id,
+          name: item.name,
+          coverImage: dealImage(item.coverImage),
+          desc: item.desc,
+          link: item.link,
+          url: item.url,
+          category: item.category
+        } as Banners
+      })
+    })
   }
 
-  static getProducts(url: string) {
-    return httpRequest.httpGet(url).then()
+  static getProducts(url: string): Promise<Product[]> {
+    return httpRequest.httpGet(url).then(res => {
+      return (res!['data'] as Product[])
+    })
   }
 
   static getProductsCategory(url: string) {
