@@ -1,4 +1,5 @@
 import { homePage } from '../component/homeComponent'
+import { userInfo } from '../component/userIfonComponent'
 
 @Entry
 @Component
@@ -40,11 +41,7 @@ struct Index {
       .tabBar(this.tabBuilder('购物车', 1, $r('app.media.mihayo_cart')))
 
       TabContent() {
-        Column() {
-          Text('我的内容')
-        }
-        .width('100%')
-        .height('100%')
+        userInfo()
       }
       .tabBar(this.tabBuilder('我的', 2, $r('app.media.myself')))
     }
