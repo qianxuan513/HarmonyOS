@@ -75,6 +75,13 @@ interface ProductCategory {
   parent: number
 }
 
+//个人中心数据模型
+interface InfoFeature {
+  id: string
+  text: string,
+  image: Resource
+}
+
 export {
   BannersRoot,
   Banners,
@@ -83,5 +90,6 @@ export {
   ProductDetailRoot,
   ProductDetail,
   ProductCategoryRoot,
-  ProductCategory
+  ProductCategory,
+  InfoFeature
 }
