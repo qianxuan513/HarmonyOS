@@ -1,4 +1,5 @@
 import { InfoFeature } from '../model/dataModel'
+import { preferencesStorage } from '../utils/httpTools'
 
 @Component
 struct userOrder {
@@ -17,6 +18,7 @@ struct userOrder {
 
 @Component
 export struct userInfo {
+  @State userToken: string = ''
   @State featureList: InfoFeature[] = [
     {
       id: '1',
@@ -49,6 +51,11 @@ export struct userInfo {
       image: $r('app.media.mihayo_tiaokuan')
     },
   ]
+
+  aboutToAppear(): void {
+    this.userToken = preferencesStorage.getData('token')
+    console.log(this.userToken)
+  }
 
   build() {
     Column() {
@@ -175,6 +182,10 @@ export struct userInfo {
         .backgroundColor(Color.White)
         .type(ButtonType.Normal)
         .fontColor(Color.Black)
+        .onClick(() => {
+          preferencesStorage.deleteData('token')
+          console.log(this.userToken)
+        })
     }
     .width('100%')
     .height('100%')

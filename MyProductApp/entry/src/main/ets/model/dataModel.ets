@@ -76,6 +76,16 @@ interface ProductCategory {
 }
 
 //个人中心数据模型
+interface userInfoModel {
+  userName: string
+  password: string
+}
+
+interface loginModel {
+  code: number
+  data: string
+}
+
 interface InfoFeature {
   id: string
   text: string,
@@ -91,5 +101,7 @@ export {
   ProductDetail,
   ProductCategoryRoot,
   ProductCategory,
+  userInfoModel,
+  loginModel,
   InfoFeature
 }

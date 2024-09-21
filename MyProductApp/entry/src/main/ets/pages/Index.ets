@@ -1,5 +1,6 @@
 import { homePage } from '../component/homeComponent'
 import { userInfo } from '../component/userIfonComponent'
+import { unLogin } from '../component/unLoginComponent'
 
 @Entry
 @Component
@@ -33,7 +34,7 @@ struct Index {
 
       TabContent() {
         Column() {
-          Text('我的内容')
+          unLogin({ txt: '购物车' })
         }
         .width('100%')
         .height('100%')

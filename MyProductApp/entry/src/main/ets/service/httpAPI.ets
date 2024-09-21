@@ -1,6 +1,6 @@
 import { BusinessError } from '@kit.BasicServicesKit';
 import { dealImage, httpRequest } from '../utils/httpTools'
-import { Banners, ProductRoot, Product, ProductCategoryRoot, ProductCategory } from '../model/dataModel'
+import { Banners, Product, userInfoModel } from '../model/dataModel'
 
 //rcp发起http网络请求
 export class httpAPI {
@@ -34,5 +34,9 @@ export class httpAPI {
 
   static getProductsDetail(url: string) {
     return httpRequest.httpGet(url).then()
+  }
+
+  static getLogin(url: string,data:userInfoModel) {
+    return httpRequest.httpPost(url, data).then()
   }
 }
