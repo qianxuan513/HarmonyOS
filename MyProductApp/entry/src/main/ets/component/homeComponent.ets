@@ -1,6 +1,6 @@
-import { Banners, ProductRoot, Product, ProductCategoryRoot, ProductCategory } from '../model/dataModel'
-import { httpAPI } from '../service/httpAPI'
+import { Banners, ProductRoot, Product, ProductCategoryRoot, ProductCategory } from 'GeneralModule'
 import { productList } from '../component/productListComponent'
+import { httpAPI } from 'GeneralModule'
 
 @Component
 export struct homePage {
@@ -34,7 +34,7 @@ export struct homePage {
   //商品列表
   getProduct() {
     httpAPI.getProducts(`/api/v1/products/?page=${this.productPage}&&per=${10}`).then(response => {
-      this.productList.push(...response)
+      this.productList.push(...response as Product[])
       this.productPage += 1
     })
   }

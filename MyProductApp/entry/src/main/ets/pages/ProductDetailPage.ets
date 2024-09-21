@@ -2,8 +2,8 @@ import { router } from '@kit.ArkUI'
 import { HPRichText } from '@ohasasugar/hp-richtext';
 import type { RichTextOption } from '@ohasasugar/hp-richtext';
 
-import { Product, ProductDetailRoot, ProductDetail, ProductCategory } from '../model/dataModel'
-import { httpAPI } from '../service/httpAPI'
+import { Product, ProductDetailRoot, ProductDetail, ProductCategory } from 'GeneralModule'
+import { httpAPI } from 'GeneralModule'
 
 @Entry
 @Component

@@ -1,7 +1,7 @@
 import { CustomContentDialog } from '@kit.ArkUI'
-import { httpAPI } from '../service/httpAPI'
-import { userInfoModel, loginModel } from '../model/dataModel'
-import { preferencesStorage } from '../utils/httpTools'
+import { httpAPI } from 'GeneralModule'
+import { userInfoModel, loginModel } from 'GeneralModule'
+import { preferencesStorage } from 'GeneralModule'
 
 @CustomDialog
 struct loginDialogExample {

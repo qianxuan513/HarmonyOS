@@ -30,6 +30,10 @@
           ]
         }
       ]
+    },
+    {
+      "name": "GeneralModule",
+      "srcPath": "./FunctionalModule/GeneralModule",
     }
   ]
 }

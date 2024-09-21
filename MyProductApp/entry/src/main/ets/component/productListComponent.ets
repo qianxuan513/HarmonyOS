@@ -1,5 +1,5 @@
 import { router } from '@kit.ArkUI';
-import { Product } from '../model/dataModel'
+import { Product } from 'GeneralModule'
 
 @Component
 export struct productList {

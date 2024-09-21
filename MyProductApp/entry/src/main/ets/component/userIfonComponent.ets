@@ -1,5 +1,5 @@
-import { InfoFeature } from '../model/dataModel'
-import { preferencesStorage } from '../utils/httpTools'
+import { InfoFeature } from 'GeneralModule'
+import { preferencesStorage } from 'GeneralModule'
 
 @Component
 struct userOrder {
