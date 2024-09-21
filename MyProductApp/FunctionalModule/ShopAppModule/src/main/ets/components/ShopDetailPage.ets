@@ -1,5 +1,5 @@
 @Component
-export struct MainPage {
+export struct ShopDetailPage {
   @State message: string = 'Hello World';
 
   build() {
