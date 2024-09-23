@@ -169,7 +169,7 @@ struct ProductDetailPage {
           .width(26)
         Image($r('app.media.mihayo_kefu'))
           .width(26)
-        Image($r('app.media.mihayo_cart'))
+        Image($r("app.media.mihayo_cartNull"))
           .width(26)
         Button('加入购物车')
           .backgroundColor('#fff0f0')

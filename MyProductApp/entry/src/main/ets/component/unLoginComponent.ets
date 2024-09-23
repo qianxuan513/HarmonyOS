@@ -1,10 +1,11 @@
-import { CustomContentDialog } from '@kit.ArkUI'
+import { CustomContentDialog, router } from '@kit.ArkUI'
 import { httpAPI } from 'GeneralModule'
 import { userInfoModel, loginModel } from 'GeneralModule'
 import { preferencesStorage } from 'GeneralModule'
 
 @CustomDialog
 struct loginDialogExample {
+  @Link userToken: string
   controller?: CustomDialogController
   cancel: () => void = () => {
   }
@@ -52,6 +53,8 @@ struct loginDialogExample {
           httpAPI.getLogin('/api/v1/auth/login', this.userLoginMsg).then(res => {
             this.loginMsg = res as loginModel
             preferencesStorage.putData('token', this.loginMsg.data)
+            preferencesStorage.flushData()
+            this.userToken = preferencesStorage.getData('token')
           })
           if (this.controller != undefined) {
             this.controller.close()
@@ -75,8 +78,10 @@ struct loginDialogExample {
 @Component
 export struct unLogin {
   @Prop txt: string
+  @State userToken: string = ''
   dialogController: CustomDialogController | null = new CustomDialogController({
     builder: loginDialogExample({
+      userToken: this.userToken,
       cancel: () => {
       },
       confirm: () => {
@@ -86,6 +91,10 @@ export struct unLogin {
     width: '100%',
     height: 740,
   })
+
+  // aboutToAppear(): void {
+  //   this.userToken = preferencesStorage.getData('token')
+  // }
 
   build() {
     Column() {
@@ -100,29 +109,62 @@ export struct unLogin {
         })
         .borderColor('#f0f3f5')
 
-      Image($r('app.media.mihayo_unLogin'))
-        .width(240)
-        .height(200)
-        .margin({
-          top: 50
-        })
+      if (this.userToken) {
+        Image($r("app.media.mihayo_cartNull"))
+          .width(240)
+          .height(200)
+          .margin({
+            top: 50
+          })
+      } else {
+        Image($r('app.media.mihayo_unLogin'))
+          .width(240)
+          .height(200)
+          .margin({
+            top: 50
+          })
 
-      Text('快快开启新世界~')
-        .fontColor('#989b9e')
-        .margin({
-          top: 10,
-          bottom: 32
-        })
+        Text('快快开启新世界~')
+          .fontColor('#989b9e')
+          .margin({
+            top: 10,
+            bottom: 32
+          })
 
-      Button('登录')
-        .width(100)
-        .height(40)
-        .backgroundColor('#ff6d6d')
-        .onClick(() => {
-          if (this.dialogController != null) {
-            this.dialogController.open()
-          }
-        })
+        Button('登录')
+          .width(100)
+          .height(40)
+          .backgroundColor('#ff6d6d')
+          .onClick(() => {
+            if (this.dialogController != null) {
+              this.dialogController.open()
+            }
+          })
+      }
+
+      // Image($r('app.media.mihayo_unLogin'))
+      //   .width(240)
+      //   .height(200)
+      //   .margin({
+      //     top: 50
+      //   })
+      //
+      // Text('快快开启新世界~')
+      //   .fontColor('#989b9e')
+      //   .margin({
+      //     top: 10,
+      //     bottom: 32
+      //   })
+      //
+      // Button('登录')
+      //   .width(100)
+      //   .height(40)
+      //   .backgroundColor('#ff6d6d')
+      //   .onClick(() => {
+      //     if (this.dialogController != null) {
+      //       this.dialogController.open()
+      //     }
+      //   })
     }
     .width('100%')
     .height('100%')

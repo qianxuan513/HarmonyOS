@@ -58,12 +58,17 @@ export class preferencesStorage {
   //使用putSync()方法保存数据到缓存的Preferences实例中
   static putData(name: string, value: string) {
     preferencesStorage.tokenPreferences?.putSync(name, value)
+    preferencesStorage.flushData()
   }
 
   //使用flush()方法实现数据持久化
   static flushData() {
     preferencesStorage.tokenPreferences?.flush(err => {
-      console.log('数据持久化失败')
+      if (err) {
+        console.log('数据持久化失败')
+        return
+      }
+      console.log('数据持久化成功')
     })
   }
 

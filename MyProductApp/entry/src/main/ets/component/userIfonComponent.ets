@@ -54,7 +54,7 @@ export struct userInfo {
 
   aboutToAppear(): void {
     this.userToken = preferencesStorage.getData('token')
-    console.log(this.userToken)
+    // console.log(this.userToken)
   }
 
   build() {
@@ -184,7 +184,7 @@ export struct userInfo {
         .fontColor(Color.Black)
         .onClick(() => {
           preferencesStorage.deleteData('token')
-          console.log(this.userToken)
+          preferencesStorage.flushData()
         })
     }
     .width('100%')

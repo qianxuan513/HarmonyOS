@@ -39,7 +39,7 @@ struct Index {
         .width('100%')
         .height('100%')
       }
-      .tabBar(this.tabBuilder('购物车', 1, $r('app.media.mihayo_cart')))
+      .tabBar(this.tabBuilder('购物车', 1, $r("app.media.mihayo_cart")))
 
       TabContent() {
         userInfo()
