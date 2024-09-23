@@ -53,8 +53,8 @@ export struct userInfo {
   ]
 
   aboutToAppear(): void {
-    this.userToken = preferencesStorage.getData('token')
-    // console.log(this.userToken)
+    // this.userToken = preferencesStorage.getData('token')
+    console.log(AppStorage.get('token') as string)
   }
 
   build() {
@@ -185,6 +185,11 @@ export struct userInfo {
         .onClick(() => {
           preferencesStorage.deleteData('token')
           preferencesStorage.flushData()
+          AppStorage.setOrCreate('Token', preferencesStorage.getData('token'));
+          let linkToken: SubscribedAbstractProperty<string> =
+            AppStorage.setAndLink('token', preferencesStorage.getData('token'))
+          linkToken.set(preferencesStorage.getData('token'))
+          console.log(AppStorage.get('token') as string)
         })
     }
     .width('100%')

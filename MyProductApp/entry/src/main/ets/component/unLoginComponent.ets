@@ -55,6 +55,11 @@ struct loginDialogExample {
             preferencesStorage.putData('token', this.loginMsg.data)
             preferencesStorage.flushData()
             this.userToken = preferencesStorage.getData('token')
+            AppStorage.setOrCreate('Token', preferencesStorage.getData('token'));
+            let linkToken: SubscribedAbstractProperty<string> =
+              AppStorage.setAndLink('token', preferencesStorage.getData('token'))
+            linkToken.set(preferencesStorage.getData('token'))
+            console.log(AppStorage.get('token') as string)
           })
           if (this.controller != undefined) {
             this.controller.close()
@@ -93,7 +98,7 @@ export struct unLogin {
   })
 
   // aboutToAppear(): void {
-  //   this.userToken = preferencesStorage.getData('token')
+  //   this.userToken = AppStorage.get('token') as string
   // }
 
   build() {
