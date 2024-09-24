@@ -5,6 +5,10 @@
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    'GeneralLibrary': 'file:../libs/GeneralLibrary',
+    'ShopAppLibrary': 'file:../libs/ShopApplibrary',
+    'ForumAppLibrary': 'file:../libs/ForumAppLibrary'
+  }
 }
 

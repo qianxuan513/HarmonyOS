@@ -30,6 +30,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "GeneralLibrary",
+      "srcPath": "./libs/GeneralLibrary",
+    },
+    {
+      "name": "ShopApplibrary",
+      "srcPath": "./libs/ShopApplibrary",
+    },
+    {
+      "name": "ForumAppLibrary",
+      "srcPath": "./libs/ForumAppLibrary",
     }
   ]
 }

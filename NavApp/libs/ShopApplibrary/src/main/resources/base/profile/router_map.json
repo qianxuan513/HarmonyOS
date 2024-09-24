@@ -1,0 +1,28 @@
+{
+  "routerMap": [
+    {
+      "name": "ShopHomePage",
+      "pageSourceFile": "src/main/ets/pages/ShopHomePage.ets",
+      "buildFunction": "ShopHomePageBuilder",
+      "data": {
+        "description": "this is ShopHomePage"
+      }
+    },
+    {
+      "name": "ShopCartPage",
+      "pageSourceFile": "src/main/ets/pages/ShopCartPage.ets",
+      "buildFunction": "ShopCartPageBuilder",
+      "data": {
+        "description": "this is ShopCartPage"
+      }
+    },
+    {
+      "name": "ShopDetailPage",
+      "pageSourceFile": "src/main/ets/pages/ShopDetailPage.ets",
+      "buildFunction": "ShopDetailPageBuilder",
+      "data": {
+        "description": "this is ShopDetailPage"
+      }
+    }
+  ]
+}

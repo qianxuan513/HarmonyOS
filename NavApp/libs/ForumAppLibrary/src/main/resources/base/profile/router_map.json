@@ -1,0 +1,12 @@
+{
+  "routerMap": [
+    {
+      "name": "ForumHomePage",
+      "pageSourceFile": "src/main/ets/pages/ForumHomePage.ets",
+      "buildFunction": "ForumHomePageBuilder",
+      "data": {
+        "description": "this is ForumHomePage"
+      }
+    }
+  ]
+}
