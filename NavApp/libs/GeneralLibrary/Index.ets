@@ -2,4 +2,12 @@
 export { UserInfoPage } from './src/main/ets/pages/UserInfoPage'
 
 //数据模型暴露
+export { CategoryRoot,
+  CategoryData,
+  FirstCateData,
+  SecondCateData,
+  Level1wordData,
+  Level2wordData } from './src/main/ets/common/model/dataModel'
 
+//网络请求暴露
+export { shopRcpAPI } from './src/main/ets/common/service/shopAPI'

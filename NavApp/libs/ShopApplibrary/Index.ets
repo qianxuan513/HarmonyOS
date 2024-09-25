@@ -4,3 +4,5 @@ export { MainPage } from './src/main/ets/components/MainPage'
 export { ShopHomePage } from './src/main/ets/pages/ShopHomePage'
 
 export { ShopCartPage } from './src/main/ets/pages/ShopCartPage'
+
+export { ShopCategoryPage } from './src/main/ets/pages/ShopCategoryPage'

@@ -14,9 +14,9 @@ export struct ShopHomePage {
         Text(this.message)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
-        Button('去详情')
+        Button('去分类')
           .onClick(() => {
-            this.pathStack.pushPathByName('ShopDetailPage', null)
+            this.pathStack.pushPathByName('ShopCategoryPage', null)
           })
       }
       .width('100%')

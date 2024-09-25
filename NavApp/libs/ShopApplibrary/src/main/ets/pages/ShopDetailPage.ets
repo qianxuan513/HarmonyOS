@@ -5,6 +5,7 @@ export function ShopDetailPageBuilder(name: string, param: Object) {
 
 @Component
 export struct ShopDetailPage {
+  pathStack: NavPathStack = new NavPathStack()
   @State message: string = '商品详情';
 
   build() {
@@ -19,5 +20,8 @@ export struct ShopDetailPage {
       }
       .height('100%')
     }
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack
+    })
   }
 }

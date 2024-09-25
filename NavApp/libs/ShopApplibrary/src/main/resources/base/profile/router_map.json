@@ -23,6 +23,14 @@
       "data": {
         "description": "this is ShopDetailPage"
       }
+    },
+    {
+      "name": "ShopCategoryPage",
+      "pageSourceFile": "src/main/ets/pages/ShopCategoryPage.ets",
+      "buildFunction": "ShopCategoryPageBuilder",
+      "data": {
+        "description": "this is ShopCategoryPage"
+      }
     }
   ]
 }
