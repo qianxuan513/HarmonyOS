@@ -51,8 +51,6 @@ struct Index {
         icon: $r('app.media.unactive_mhyHome'),
         activeIcon: $r('app.media.active_mhyHome'),
         status: this.tabsIndex == 0 ? ToolbarItemStatus.ACTIVE : ToolbarItemStatus.NORMAL,
-        // activeSymbolIcon: new SymbolGlyphModifier($r('app.media.active_mhyHome')).fontColor(['#ff6d6d'])
-        //   .renderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR),
         action: () => {
           this.tabsController.changeIndex(0)
           this.tabsIndex = 0
@@ -87,7 +85,7 @@ struct Index {
           this.tabsController.changeIndex(3)
           this.tabsIndex = 3
         }
-      }
+      },
     ], {
       backgroundColor: '#fff'
     })
