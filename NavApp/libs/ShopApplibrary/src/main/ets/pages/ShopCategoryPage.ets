@@ -1,4 +1,4 @@
-import { FirstCateData, Level1wordData, Level2wordData, shopRcpAPI } from 'GeneralLibrary'
+import { FirstCateData, Level1wordData, Level2wordData, shopRcpAPI, recRequest } from 'GeneralLibrary'
 
 @Builder
 export function ShopCategoryPageBuilder(name: string, param: Object) {

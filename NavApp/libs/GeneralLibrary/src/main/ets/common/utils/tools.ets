@@ -15,7 +15,10 @@ export class recRequest {
 
   //get请求
   static rcpGet(url: string) {
-    return recRequest.setSession().get(url).then(res => {
+    recRequest.setSession().close()
+    const session = recRequest.setSession()
+    return session.get(url).then(res => {
+      session.close()
       return res.toJSON()
     })
   }

@@ -11,3 +11,5 @@ export { CategoryRoot,
 
 //网络请求暴露
 export { shopRcpAPI } from './src/main/ets/common/service/shopAPI'
+
+export { recRequest } from './src/main/ets/common/utils/tools'
