@@ -11,6 +11,10 @@
     {
       "name": "FeatureAbility_label",
       "value": "label"
+    },
+    {
+      "name": "address_exchange_search_ticket",
+      "value": "查询车票"
     }
   ]
 }
