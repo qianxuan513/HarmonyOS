@@ -4,7 +4,7 @@ import { AddressExchangeView } from '../views/addressexchange'
 @Component
 struct Index {
   build() {
-    RelativeContainer() {
+    Column() {
       AddressExchangeView()
     }
     .height('100%')
