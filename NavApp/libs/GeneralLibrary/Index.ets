@@ -1,6 +1,8 @@
 //页面暴露
 export { UserInfoPage } from './src/main/ets/pages/UserInfoPage'
 
+export { LoginPage } from './src/main/ets/pages/LoginPage'
+
 //数据模型暴露
 export { CategoryRoot,
   CategoryData,

@@ -5,17 +5,20 @@ export function UserInfoPageBuilder(name: string, param: Object) {
 
 @Component
 export struct UserInfoPage {
-  @State message: string = '用户信息';
+  @State message: string = '个人信息';
 
   build() {
-    Row() {
-      Column() {
-        Text(this.message)
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
-      }
-      .width('100%')
+    Column() {
+      Text(this.message)
+        .fontSize(20)
+        .fontWeight(FontWeight.Bold)
+        .width('100%')
+        .textAlign(TextAlign.Center)
+        .backgroundColor(Color.White)
     }
+    .justifyContent(FlexAlign.Start)
+    .width('100%')
     .height('100%')
+    .backgroundColor('#ffdfe2e2')
   }
 }

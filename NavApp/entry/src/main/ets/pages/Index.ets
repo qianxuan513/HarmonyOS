@@ -38,13 +38,18 @@ struct Index {
         }
       }
       .scrollable(false)
-      .barWidth(0)
+      .barHeight(0)
       .animationDuration(0)
+      .backgroundColor(Color.White)
     }
     //Navigation的属性
-    .backgroundColor(Color.Pink)
+    // .backgroundColor(Color.Pink)
+    .title('OA')
+    .titleMode(NavigationTitleMode.Mini)
     .hideTitleBar(true) //隐藏标题栏和菜单栏
     .mode(NavigationMode.Auto) //设置页面的显示模式
+    .height('100%')
+    .width('100%')
     .toolbarConfiguration([
       {
         value: '首页',
@@ -89,7 +94,5 @@ struct Index {
     ], {
       backgroundColor: '#fff'
     })
-
-    // .titleMode(NavigationTitleMode.Mini) //设置标题栏模式
   }
 }

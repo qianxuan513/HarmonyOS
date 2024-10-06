@@ -9,18 +9,16 @@ export struct ShopHomePage {
   pathStack: NavPathStack = new NavPathStack()
 
   build() {
-    Row() {
-      Column() {
-        Text(this.message)
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
-        Button('去分类')
-          .onClick(() => {
-            this.pathStack.pushPathByName('ShopCategoryPage', null)
-          })
-      }
-      .width('100%')
+    Column() {
+      Text(this.message)
+        .fontSize(50)
+        .fontWeight(FontWeight.Bold)
+      Button('去分类')
+        .onClick(() => {
+          this.pathStack.pushPathByName('ShopCategoryPage', null)
+        })
     }
+    .width('100%')
     .height('100%')
   }
 }

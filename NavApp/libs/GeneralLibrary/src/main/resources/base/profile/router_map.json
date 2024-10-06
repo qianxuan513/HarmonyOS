@@ -7,6 +7,14 @@
       "data": {
         "description": "this is UserInfoPage"
       }
+    },
+    {
+      "name": "LoginPage",
+      "pageSourceFile": "src/main/ets/pages/LoginPage.ets",
+      "buildFunction": "LoginPageBuilder",
+      "data": {
+        "description": "this is LoginPage"
+      }
     }
   ]
 }
