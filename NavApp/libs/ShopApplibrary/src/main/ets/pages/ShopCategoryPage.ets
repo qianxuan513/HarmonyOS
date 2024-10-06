@@ -11,9 +11,12 @@ export struct ShopCategoryPage {
   @State listIndex: number = 2094
   @State categoryArr: FirstCateData[] = []
   @State categoryData: Level1wordData[] = []
+  categoryConfig = recRequest.sessionConfig
 
   aboutToAppear(): void {
-    shopRcpAPI.getProductsCategory('https://api.m.jd.com/api?functionId=mbf_queryCategory&appid=jd-cphdeveloper-m&body=%7B%22tenantCode%22%3A%22jgm%22%2C%22bizModelCode%22%3A%225%22%2C%22loginWQBiz%22%3A%22golden-trade%22%2C%22bizModeFramework%22%3A%22h5%22%2C%22bizModeClientType%22%3A%22M%22%2C%22uuid%22%3A%225867974187210700703%22%2C%22externalLoginType%22%3A%221%22%2C%22categoryId%22%3A%222094%22%7D&loginType=2')
+    this.categoryConfig.headers!['origin'] = 'https://minicaty-pro.pf.jd.com'
+    shopRcpAPI.getProductsCategory('https://api.m.jd.com/api?functionId=mbf_queryCategory&appid=jd-cphdeveloper-m&body=%7B%22tenantCode%22%3A%22jgm%22%2C%22bizModelCode%22%3A%225%22%2C%22loginWQBiz%22%3A%22golden-trade%22%2C%22bizModeFramework%22%3A%22h5%22%2C%22bizModeClientType%22%3A%22M%22%2C%22uuid%22%3A%225867974187210700703%22%2C%22externalLoginType%22%3A%221%22%2C%22categoryId%22%3A%222094%22%7D&loginType=2',
+      this.categoryConfig)
       .then(res => {
         this.categoryArr = res.firstCate.filter(item => {
           return item.title != '热门推荐'
@@ -53,7 +56,8 @@ export struct ShopCategoryPage {
                   .textAlign(TextAlign.Center)
                   .onClick(() => {
                     this.listIndex = Number(item.paneKey)
-                    shopRcpAPI.getProductsCategory(`https://api.m.jd.com/api?functionId=mbf_queryCategory&appid=jd-cphdeveloper-m&body=%7B%22tenantCode%22%3A%22jgm%22%2C%22bizModelCode%22%3A%225%22%2C%22loginWQBiz%22%3A%22golden-trade%22%2C%22bizModeFramework%22%3A%22h5%22%2C%22bizModeClientType%22%3A%22M%22%2C%22uuid%22%3A%225867974187210700703%22%2C%22externalLoginType%22%3A%221%22%2C%22categoryId%22%3A%22${Number(item.paneKey)}%22%7D&loginType=2`)
+                    shopRcpAPI.getProductsCategory(`https://api.m.jd.com/api?functionId=mbf_queryCategory&appid=jd-cphdeveloper-m&body=%7B%22tenantCode%22%3A%22jgm%22%2C%22bizModelCode%22%3A%225%22%2C%22loginWQBiz%22%3A%22golden-trade%22%2C%22bizModeFramework%22%3A%22h5%22%2C%22bizModeClientType%22%3A%22M%22%2C%22uuid%22%3A%225867974187210700703%22%2C%22externalLoginType%22%3A%221%22%2C%22categoryId%22%3A%22${Number(item.paneKey)}%22%7D&loginType=2`,
+                      this.categoryConfig)
                       .then(res => {
                         this.categoryData = res.secondCate.level1words.filter((item, index) => {
                           return index != 0

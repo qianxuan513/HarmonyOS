@@ -5,7 +5,7 @@ import { common } from '@kit.AbilityKit';
 import { userInfoModel } from '../model/dataModel'
 
 //定义基地址
-export const baseUrl: string = 'http://192.168.14.56:1337'
+export const baseUrl: string = 'http://172.23.32.1:1337'
 
 //处理图片
 export function dealImage(url: string) {
