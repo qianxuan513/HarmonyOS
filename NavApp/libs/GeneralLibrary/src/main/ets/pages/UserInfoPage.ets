@@ -53,8 +53,11 @@ export struct UserInfoPage {
         ForEach(this.lhArr, (item: image.PixelMap) => {
           ListItem() {
             Image(item)
-              .height(300)
+              .height('100%')
+              .width('100%')
           }
+          .width(200)
+          .height(300)
         })
       }
       .lanes(2)
